@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Table(name = "foods")
 public class Food {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
     private Integer calories;
