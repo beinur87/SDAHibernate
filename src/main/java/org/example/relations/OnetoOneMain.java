@@ -1,5 +1,6 @@
 package org.example.relations;
 
+import org.example.database.DatabaseConfig;
 import org.example.relations.entity.Child;
 import org.example.relations.entity.Food;
 import org.example.relations.entity.Mother;
@@ -11,14 +12,7 @@ import org.hibernate.cfg.Configuration;
 
 public class OnetoOneMain {
     public static void main(String[] args) {
-        SessionFactory sessionFactory = new Configuration()
-                .configure("hibernate.config.xml")
-                .addAnnotatedClass(Mother.class)
-                .addAnnotatedClass(Food.class)
-                .addAnnotatedClass(Child.class)
-                .addAnnotatedClass(Toy.class)
-                .buildSessionFactory();
-        Session session = sessionFactory.openSession();
+        Session session = DatabaseConfig.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
 
         Food pizza = new Food(1,"Pizza",2000,false);

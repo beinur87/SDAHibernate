@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "tv_shows")
