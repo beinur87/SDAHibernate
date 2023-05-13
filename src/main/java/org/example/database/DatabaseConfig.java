@@ -24,6 +24,7 @@ public class DatabaseConfig {
                     .addAnnotatedClass(Toy.class)
                     .addAnnotatedClass(TvShows.class)
                     .addAnnotatedClass(Animal.class)
+                    .addAnnotatedClass(Owner.class)
                     .buildSessionFactory();
         }
         return sessionFactory;

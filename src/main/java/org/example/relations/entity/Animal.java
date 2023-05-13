@@ -9,11 +9,14 @@ public class Animal {
     private Integer id;
     private String name;
     private String type;
+    @ManyToOne
+    private Owner owner;
 
-    public Animal(Integer id, String name, String type) {
+    public Animal(Integer id, String name, String type, Owner owner) {
         this.id = id;
         this.name = name;
         this.type = type;
+        this.owner = owner;
     }
 
     public Integer getId() {
@@ -38,5 +41,13 @@ public class Animal {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 }
