@@ -1,22 +1,19 @@
 package org.example.relations.entity;
-
 import jakarta.persistence.*;
-import org.hibernate.annotations.Cascade;
 
 @Entity
-@Table(name = "tv_shows")
-public class TvShows {
+@Table(name = "animals")
+public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    @Enumerated(value = EnumType.STRING)
-    private Genre genre;
+    private String type;
 
-    public TvShows(Integer id, String name, Genre genre) {
+    public Animal(Integer id, String name, String type) {
         this.id = id;
         this.name = name;
-        this.genre = genre;
+        this.type = type;
     }
 
     public Integer getId() {
@@ -35,11 +32,11 @@ public class TvShows {
         this.name = name;
     }
 
-    public Genre getGenre() {
-        return genre;
+    public String getType() {
+        return type;
     }
 
-    public void setGenre(Genre genre) {
-        this.genre = genre;
+    public void setType(String type) {
+        this.type = type;
     }
 }

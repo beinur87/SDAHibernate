@@ -23,6 +23,7 @@ public class DatabaseConfig {
                     .addAnnotatedClass(Child.class)
                     .addAnnotatedClass(Toy.class)
                     .addAnnotatedClass(TvShows.class)
+                    .addAnnotatedClass(Animal.class)
                     .buildSessionFactory();
         }
         return sessionFactory;

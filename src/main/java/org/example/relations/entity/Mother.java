@@ -1,7 +1,7 @@
 package org.example.relations.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.engine.internal.Cascade;
+import org.hibernate.annotations.Cascade;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class Mother {
     private Job job;
     @OneToMany
     private List<Hobby> hobbies;
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.PERSIST})
     private List<TvShows> tvshows;
 
 
@@ -67,5 +67,13 @@ public class Mother {
 
     public void setJob(Job job) {
         this.job = job;
+    }
+
+    public List<TvShows> getTvshows() {
+        return tvshows;
+    }
+
+    public void setTvshows(List<TvShows> tvshows) {
+        this.tvshows = tvshows;
     }
 }
