@@ -1,5 +1,6 @@
 package org.example.relations;
 
+import org.example.database.DatabaseConfig;
 import org.example.relations.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,14 +10,7 @@ import org.hibernate.cfg.Configuration;
 public class GeneratedIdMain {
 
     public static void main(String[] args) {
-        SessionFactory sessionFactory = new Configuration()
-                .configure("hibernate.config.xml")
-                .addAnnotatedClass(Mother.class)
-                .addAnnotatedClass(Food.class)
-                .addAnnotatedClass(Child.class)
-                .addAnnotatedClass(Toy.class)
-                .buildSessionFactory();
-        Session session = sessionFactory.openSession();
+        Session session = DatabaseConfig.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
 
         Mother mom = new Mother(null, "Mommy", Job.DOCTOR);

@@ -1,16 +1,14 @@
 package org.example.exercitiu2;
 
+import org.example.database.DatabaseConfig;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 
 
 public class Ex2 {
     public static void main(String[] args) {
-        SessionFactory sessionFactory = new Configuration()
-                .configure("hibernate.config.xml")
-                .addAnnotatedClass(Student.class)
-                .buildSessionFactory();
-        Session session = sessionFactory.openSession();
+
+        Session session = DatabaseConfig.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
 
         Student stud1 = new Student(1, "Maria",1987);

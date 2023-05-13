@@ -1,6 +1,9 @@
 package org.example.relations.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.engine.internal.Cascade;
+
+import java.util.List;
 
 @Entity
 @Table(name = "mothers")
@@ -11,14 +14,37 @@ public class Mother {
     private String name;
     @Enumerated(EnumType.STRING)
     private Job job;
+    @OneToMany
+    private List<Hobby> hobbies;
+    @OneToMany
+    private List<TvShows> tvshows;
+
 
     public Mother(Integer id, String name, Job job) {
         this.id = id;
         this.name = name;
         this.job = job;
     }
+
+    public Mother(Integer id, String name, Job job, List<Hobby> hobbies, List<TvShows> tvshows) {
+        this.id = id;
+        this.name = name;
+        this.job = job;
+        this.hobbies = hobbies;
+        this.tvshows = tvshows;
+    }
+
     public Mother(){
     }
+
+    public List<Hobby> getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(List<Hobby> hobbies) {
+        this.hobbies = hobbies;
+    }
+
     public Integer getId() {
         return id;
     }
