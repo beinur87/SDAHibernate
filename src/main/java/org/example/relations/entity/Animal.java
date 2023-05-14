@@ -9,7 +9,8 @@ public class Animal {
     private Integer id;
     private String name;
     private String type;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "owner_id")
     private Owner owner;
 
     public Animal(Integer id, String name, String type, Owner owner) {
